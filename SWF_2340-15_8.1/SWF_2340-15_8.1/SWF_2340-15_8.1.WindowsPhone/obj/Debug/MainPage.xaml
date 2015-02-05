@@ -11,8 +11,9 @@
     <Grid>
         <TextBlock x:Uid="title" Margin="10,21,16,0" TextWrapping="Wrap" Text="Shopping With Friends!" VerticalAlignment="Top" FontSize="72" FontWeight="Bold"/>
         <TextBlock x:Uid="block" HorizontalAlignment="Left" Margin="10,342,0,0" TextWrapping="Wrap" Text="Team 39: Will Code For Money" VerticalAlignment="Top" FontSize="48"/>
-        <Button x:Name="loginB" x:Uid="loginB" Content="Login" HorizontalAlignment="Left" Margin="28,535,0,0" VerticalAlignment="Top" Click="loginB_Click"/>
-        <Button x:Name="regB" x:Uid="regB" Content="Register" HorizontalAlignment="Left" Margin="260,535,0,0" VerticalAlignment="Top" Click="regB_Click" />
+        <Button x:ConnectionId='1' x:Name="loginB" x:Uid="loginB" Content="Login" HorizontalAlignment="Left" Margin="28,535,0,0" VerticalAlignment="Top"                     />
+        <Button x:ConnectionId='2' x:Name="regB" x:Uid="regB" Content="Register" HorizontalAlignment="Left" Margin="260,535,0,0" VerticalAlignment="Top"                    />
 
     </Grid>
 </Page>
+
