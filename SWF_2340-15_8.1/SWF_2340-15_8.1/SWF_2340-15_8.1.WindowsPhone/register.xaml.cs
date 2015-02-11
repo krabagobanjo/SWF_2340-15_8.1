@@ -110,7 +110,8 @@ namespace SWF_2340_15_8._1
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Registrar reg = new Registrar();
+            
         }
 
 

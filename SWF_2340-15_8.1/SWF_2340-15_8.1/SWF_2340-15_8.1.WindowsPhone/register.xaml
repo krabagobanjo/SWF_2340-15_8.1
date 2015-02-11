@@ -14,10 +14,16 @@
     </Page.BottomAppBar>
 
     <Grid x:Name="LayoutRoot">
-        <TextBox x:Name="username" x:Uid="username" HorizontalAlignment="Left" Margin="22,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348"/>
-        <PasswordBox x:Name="password" x:Uid="password" HorizontalAlignment="Left" Margin="22,126,0,0" VerticalAlignment="Top" Width="348" />
-        <TextBlock x:Uid="usernameHeader" HorizontalAlignment="Left" Margin="22,33,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Uid="passwordHeader" HorizontalAlignment="Left" Margin="22,108,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBox x:Name="username" x:Uid="username" HorizontalAlignment="Left" Margin="20,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" FontFamily="Global User Interface"/>
+        <PasswordBox x:Name="password" x:Uid="password" HorizontalAlignment="Left" Margin="20,226,0,0" VerticalAlignment="Top" Width="348" />
+        <TextBlock x:Name="usernameHeader" x:Uid="usernameHeader" HorizontalAlignment="Left" Margin="20,84,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="passwordHeader" x:Uid="passwordHeader" HorizontalAlignment="Left" Margin="20,208,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="20,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" InputScope="EmailSmtpAddress" FontFamily="Global User Interface"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="20,283,0,0" VerticalAlignment="Top" Width="348"/>
+        <TextBox HorizontalAlignment="Left" Margin="20,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" InputScope="NameOrPhoneNumber"/>
+        <TextBlock x:Name="nameHeader" x:Uid="nameHeader" HorizontalAlignment="Left" Margin="20,22,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="emailHeader" x:Uid="emailHeader" HorizontalAlignment="Left" Margin="20,146,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="passConfirm" x:Uid="passConfirm" HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

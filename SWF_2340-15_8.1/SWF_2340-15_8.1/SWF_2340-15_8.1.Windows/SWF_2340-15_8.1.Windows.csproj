@@ -112,6 +112,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="packages.config" />
     <None Include="SWF_2340-15_8.1.Windows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

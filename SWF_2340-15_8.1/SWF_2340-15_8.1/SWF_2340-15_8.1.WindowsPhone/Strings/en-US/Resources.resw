@@ -120,11 +120,20 @@
   <data name="block.Text" xml:space="preserve">
     <value>Team 39: Will Code For Money</value>
   </data>
+  <data name="emailHeader.Text" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="logbutton.Label" xml:space="preserve">
     <value>Login</value>
   </data>
   <data name="loginB.Content" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="nameHeader.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="passConfirm.Text" xml:space="preserve">
+    <value>Confirm Password</value>
   </data>
   <data name="passwordHeader.Text" xml:space="preserve">
     <value>Password</value>
