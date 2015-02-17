@@ -12,6 +12,7 @@ namespace SWF_2340_15_8._1
         private string password;
         private List<double> rating;
         private List<string> friends;
+        private bool authenticated;
 
         public User(string name, string user, string email, string password)
         {
@@ -21,6 +22,13 @@ namespace SWF_2340_15_8._1
             this.password = password;
             rating = new List<double>();
             friends = new List<string>();
+            authenticated = false;
+        }
+
+        public bool AuthStatus
+        {
+            get { return authenticated; }
+            set { authenticated = value; }
         }
 
         public string Name
@@ -54,7 +62,8 @@ namespace SWF_2340_15_8._1
             {
                 double sum = 0;
                 foreach (double d in rating) sum += d;
-                return (double) sum / rating.Count;
+                if (sum == 0) return 0;
+                else return (double) sum / rating.Count;
             }
         }
 

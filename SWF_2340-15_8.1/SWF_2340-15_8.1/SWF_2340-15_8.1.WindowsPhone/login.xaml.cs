@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SQLite;
+using Windows.UI.Popups;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -110,8 +112,42 @@ namespace SWF_2340_15_8._1
 
         #endregion
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
+            await conn.CreateTableAsync<UserTable>();
+            //string query = "SELECT * FROM UserTable WHERE username = '" + username.Text + "' AND password = '" + password.Password + "'";
+            //var user = await conn.Table<UserTable>().Where(x => (x.username == username.Text && x.password == password.Password)).FirstOrDefaultAsync();
+            string uName = username.Text;
+            string pWord = password.Password;
+            var user = await conn.Table<UserTable>().Where(x => x.username == uName && x.password == pWord).FirstOrDefaultAsync();
+            if (user != null)
+            {
+                user.authStatus = true;
+                this.Frame.Navigate(typeof(MainMenu));
+            }
+            else
+            {
+                var msg = new MessageDialog("Invalid Username/Password");
+                await msg.ShowAsync();
+            }
+            //var user = await conn.QueryAsync<UserTable>(query);
+            /*bool showError = true;
+            foreach (var u in user)
+            {
+                if (u != null)
+                {
+                    u.authStatus = true;
+                    this.Frame.Navigate(typeof(MainMenu));
+                    showError = false;
+                }
+                break;
+            }
+            if (showError)
+            {
+                var msg = new MessageDialog("Invalid Username/Password");
+                await msg.ShowAsync();
+            }*/
 
         }
     }

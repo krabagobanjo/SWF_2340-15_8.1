@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,6 +16,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SQLite;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -108,10 +110,34 @@ namespace SWF_2340_15_8._1
 
         #endregion
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            Registrar reg = new Registrar();
-            
+            User newUser;
+            if (passConBox.Password==passBox.Password)
+            {
+                newUser = new User(nameBox.Text, usernameBox.Text, emailBox.Text, passBox.Password);
+                SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
+                await conn.CreateTableAsync<UserTable>();
+                UserTable us = new UserTable()
+                {
+                    name = newUser.Name,
+                    username = newUser.Username,
+                    email = newUser.Email,
+                    password = newUser.Password,
+                    rating = newUser.getRating(),
+                    friends = newUser.getFriends().ToString(),
+                    authStatus = false
+                };
+                await conn.InsertAsync(us);
+                var msg = new MessageDialog("User successfully added");
+                await msg.ShowAsync();
+                this.Frame.Navigate(typeof(MainPage));
+            }
+            else
+            {
+                var msg = new MessageDialog("Invalid Password");
+                await msg.ShowAsync();
+            }
         }
 
 
