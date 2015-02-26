@@ -21,6 +21,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Children" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="ChildrenTransitions" />
+      <RootProperty Name="RowDefinitions" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
     </RootType>
@@ -47,8 +49,13 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="CharacterSpacing" />
     </RootType>
     <RootType FullName="SWF_2340_15_8._1.login" />
+    <RootType FullName="Windows.UI.Xaml.Controls.SymbolIcon">
+      <RootProperty Name="Symbol" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="Title" />
       <RootProperty Name="Items" />
@@ -56,6 +63,9 @@
     <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
       <RootProperty Name="Header" />
       <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="SWF_2340_15_8._1.MainMenu" />
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
@@ -66,6 +76,16 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="SWF_2340_15_8._1.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.EntranceThemeTransition" />
+    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
+      <RootProperty Name="Height" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Children" />
+    </RootType>
+    <RootType FullName="SWF_2340_15_8._1.NewFriend" />
     <RootType FullName="SWF_2340_15_8._1.register" />
   </Roots.RootTypes>
 </Roots>

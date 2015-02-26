@@ -68,6 +68,7 @@ namespace SWF_2340_15_8._1
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            if (sender.GetType() == typeof(MainPage)) Frame.BackStack.Clear();
         }
 
         /// <summary>
@@ -117,6 +118,16 @@ namespace SWF_2340_15_8._1
             user.authStatus = false;
             Frame.BackStack.Clear();
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void AddFriend_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(NewFriend));
+        }
+
+        private void AddReq_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(NewRequest));
         }
     }
 }

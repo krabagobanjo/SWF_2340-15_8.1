@@ -125,7 +125,7 @@ namespace SWF_2340_15_8._1
                     email = newUser.Email,
                     password = newUser.Password,
                     rating = newUser.getRating(),
-                    friends = newUser.getFriends().ToString(),
+                    friends = newUser.friendsList,
                     authStatus = false
                 };
                 await conn.InsertAsync(us);

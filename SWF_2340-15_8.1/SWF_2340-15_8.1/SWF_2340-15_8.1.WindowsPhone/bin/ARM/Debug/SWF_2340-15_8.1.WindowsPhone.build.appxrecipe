@@ -58,6 +58,9 @@
     <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\ARM\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\ARM\Debug\NewFriend.xbf">
+      <PackagePath>NewFriend.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\ARM\Debug\register.xbf">
       <PackagePath>register.xbf</PackagePath>
     </AppxPackagedFile>

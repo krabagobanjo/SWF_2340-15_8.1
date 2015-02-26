@@ -9,7 +9,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Accept" Label="appbarbutton"/>
+            <AppBarButton x:Name="AddFriend" Icon="AddFriend" Label="Add Friend" Click="AddFriend_Click"/>
+            <AppBarButton x:Name="AddReq" Label="New Request" Click="AddReq_Click" >
+                <AppBarButton.Icon>
+                    <SymbolIcon Symbol="Add"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
             <AppBarButton x:Name="logout" Icon="Cancel" Label="Logout" Click="logout_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
@@ -17,12 +22,12 @@
 
         <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-            <Pivot Title="Shopping With Friends">
+            <Pivot Title="Shopping With Friends" Margin="0,1,0,-1">
                 <PivotItem Header="Reports">
                     <Grid/>
                 </PivotItem>
                 <PivotItem Header="Friends">
-                    <Grid/>
+                    <ListView Margin="-0.33331298828125,0,0,-0.16668701171875"/>
                 </PivotItem>
             </Pivot>
 

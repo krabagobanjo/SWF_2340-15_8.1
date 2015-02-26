@@ -9,8 +9,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Accept" Label="appbarbutton"/>
-            <AppBarButton x:ConnectionId='1' x:Name="logout" Icon="Cancel" Label="Logout"                     />
+            <AppBarButton x:ConnectionId='1' x:Name="AddFriend" Icon="AddFriend" Label="Add Friend"                        />
+            <AppBarButton x:ConnectionId='2' x:Name="AddReq" Label="New Request"                      >
+                <AppBarButton.Icon>
+                    <SymbolIcon Symbol="Add"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:ConnectionId='3' x:Name="logout" Icon="Cancel" Label="Logout"                     />
         </CommandBar>
     </Page.BottomAppBar>
     <Grid x:Name="LayoutRoot">
@@ -22,7 +27,7 @@
                     <Grid/>
                 </PivotItem>
                 <PivotItem Header="Friends">
-                    <Grid/>
+                    <ListView Margin="-0.33331298828125,0,0,-0.16668701171875"/>
                 </PivotItem>
             </Pivot>
 

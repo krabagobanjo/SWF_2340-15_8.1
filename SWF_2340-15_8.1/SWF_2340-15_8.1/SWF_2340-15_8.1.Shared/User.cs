@@ -11,7 +11,7 @@ namespace SWF_2340_15_8._1
         private string email;
         private string password;
         private List<double> rating;
-        private List<string> friends;
+        private string friends;
         private bool authenticated;
 
         public User(string name, string user, string email, string password)
@@ -21,7 +21,7 @@ namespace SWF_2340_15_8._1
             this.email = email;
             this.password = password;
             rating = new List<double>();
-            friends = new List<string>();
+            friends = "";
             authenticated = false;
         }
 
@@ -67,9 +67,10 @@ namespace SWF_2340_15_8._1
             }
         }
 
-        public List<string> getFriends()
+        public string friendsList
         {
-            return friends;
+            get { return friends; }
+            set { friends = value; }
         }
     }
 }

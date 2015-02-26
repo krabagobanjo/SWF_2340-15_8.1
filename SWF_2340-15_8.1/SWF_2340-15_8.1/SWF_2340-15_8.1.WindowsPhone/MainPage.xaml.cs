@@ -37,7 +37,6 @@ namespace SWF_2340_15_8._1
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // TODO: Prepare page for display here.
-
             // TODO: If your application contains multiple pages, ensure that you are
             // handling the hardware Back button by registering for the
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
