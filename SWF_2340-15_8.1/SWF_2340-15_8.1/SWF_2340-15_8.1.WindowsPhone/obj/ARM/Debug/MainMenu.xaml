@@ -22,7 +22,7 @@
 
         <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-            <Pivot Title="Shopping With Friends">
+            <Pivot Title="Shopping With Friends" Margin="0,1,0,-1">
                 <PivotItem Header="Reports">
                     <Grid/>
                 </PivotItem>

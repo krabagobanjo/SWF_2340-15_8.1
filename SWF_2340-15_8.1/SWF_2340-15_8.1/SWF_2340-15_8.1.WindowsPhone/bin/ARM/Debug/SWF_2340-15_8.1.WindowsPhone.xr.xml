@@ -58,6 +58,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="Title" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Items" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
@@ -86,6 +87,7 @@
       <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="SWF_2340_15_8._1.NewFriend" />
+    <RootType FullName="SWF_2340_15_8._1.NewRequest" />
     <RootType FullName="SWF_2340_15_8._1.register" />
   </Roots.RootTypes>
 </Roots>

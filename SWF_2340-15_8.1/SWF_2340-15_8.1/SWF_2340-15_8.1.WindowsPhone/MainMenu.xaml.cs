@@ -68,7 +68,6 @@ namespace SWF_2340_15_8._1
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            if (sender.GetType() == typeof(MainPage)) Frame.BackStack.Clear();
         }
 
         /// <summary>
@@ -116,7 +115,7 @@ namespace SWF_2340_15_8._1
             await conn.CreateTableAsync<UserTable>();
             var user = await conn.Table<UserTable>().Where(x => x.authStatus == true).FirstOrDefaultAsync();
             user.authStatus = false;
-            Frame.BackStack.Clear();
+            await conn.UpdateAsync(user);
             this.Frame.Navigate(typeof(MainPage));
         }
 

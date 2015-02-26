@@ -36,8 +36,8 @@
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
             <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
             <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Global User Interface" Width="342"/>
-            <TextBlock x:Name="MailBox" HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Global User Interface" Width="342"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
+            <TextBox x:Name="MailBox" HorizontalAlignment="Left" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Global User Interface" Width="342"/>
 
         </Grid>
     </Grid>

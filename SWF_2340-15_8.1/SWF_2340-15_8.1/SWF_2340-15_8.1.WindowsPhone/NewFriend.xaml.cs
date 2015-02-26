@@ -129,6 +129,11 @@ namespace SWF_2340_15_8._1
                 if (usr == null) throw new NullReferenceException();
                 else
                 {
+                    if (usr.username == user.username)
+                    {
+                        var msg = new MessageDialog("I can't allow you to friend yourself!  I'll be your friend :-)");
+                        await msg.ShowAsync();
+                    }
                     if (usr.friends.IndexOf(user.username) != -1)
                     {
                         var msg = new MessageDialog("Already your friend!");

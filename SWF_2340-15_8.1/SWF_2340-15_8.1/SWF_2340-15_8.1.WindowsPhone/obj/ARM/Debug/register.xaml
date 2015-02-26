@@ -24,7 +24,6 @@
         <TextBlock x:Name="nameHeader" x:Uid="nameHeader" HorizontalAlignment="Left" Margin="20,22,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
         <TextBlock x:Name="emailHeader" x:Uid="emailHeader" HorizontalAlignment="Left" Margin="20,146,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
         <TextBlock x:Name="passConfirm" x:Uid="passConfirm" HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Confirm Password" VerticalAlignment="Top"/>
-
     </Grid>
 </Page>
 

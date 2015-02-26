@@ -116,14 +116,13 @@ namespace SWF_2340_15_8._1
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
             await conn.CreateTableAsync<UserTable>();
-            //string query = "SELECT * FROM UserTable WHERE username = '" + username.Text + "' AND password = '" + password.Password + "'";
-            //var user = await conn.Table<UserTable>().Where(x => (x.username == username.Text && x.password == password.Password)).FirstOrDefaultAsync();
             string uName = username.Text;
             string pWord = password.Password;
             var user = await conn.Table<UserTable>().Where(x => x.username == uName && x.password == pWord).FirstOrDefaultAsync();
             if (user != null)
             {
                 user.authStatus = true;
+                await conn.UpdateAsync(user);
                 this.Frame.Navigate(typeof(MainMenu));
             }
             else
@@ -131,24 +130,6 @@ namespace SWF_2340_15_8._1
                 var msg = new MessageDialog("Invalid Username/Password");
                 await msg.ShowAsync();
             }
-            //var user = await conn.QueryAsync<UserTable>(query);
-            /*bool showError = true;
-            foreach (var u in user)
-            {
-                if (u != null)
-                {
-                    u.authStatus = true;
-                    this.Frame.Navigate(typeof(MainMenu));
-                    showError = false;
-                }
-                break;
-            }
-            if (showError)
-            {
-                var msg = new MessageDialog("Invalid Username/Password");
-                await msg.ShowAsync();
-            }*/
-
         }
     }
 }
