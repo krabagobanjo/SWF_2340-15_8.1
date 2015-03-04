@@ -121,9 +121,7 @@ namespace SWF_2340_15_8._1
             var user = await conn.Table<UserTable>().Where(x => x.username == uName && x.password == pWord).FirstOrDefaultAsync();
             if (user != null)
             {
-                user.authStatus = true;
-                await conn.UpdateAsync(user);
-                this.Frame.Navigate(typeof(MainMenu));
+                this.Frame.Navigate(typeof(MainMenu), new NavigationArgs() { currUser = user.username, sender = typeof(MainMenu) });
             }
             else
             {

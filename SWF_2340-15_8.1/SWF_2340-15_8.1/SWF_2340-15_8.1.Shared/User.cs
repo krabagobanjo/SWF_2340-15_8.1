@@ -6,71 +6,50 @@ namespace SWF_2340_15_8._1
 {
     class User
     {
-        private string username;
-        private string name;
-        private string email;
-        private string password;
-        private List<double> rating;
-        private string friends;
-        private bool authenticated;
+        public bool AuthStatus { get; private set; }
+        public string Name { get; private set; }
+        public string Username { get; private set; }
+        public string Email { get; private set; }
+        public string Password { get; private set; }
+        public string friendsList { get; private set; }
+        private string Ratings { get; private set; }
 
         public User(string name, string user, string email, string password)
         {
-            this.name = name;
-            username = user;
-            this.email = email;
-            this.password = password;
-            rating = new List<double>();
-            friends = "";
-            authenticated = false;
+            Name = name;
+            Username = user;
+            Email = email;
+            Password = password;
+            Ratings = "";
+            friendsList = "";
+            AuthStatus = false;
         }
 
-        public bool AuthStatus
+        public User(string name, string user, string email, string ratings, string friends, bool authorized)
         {
-            get { return authenticated; }
-            set { authenticated = value; }
+            Name = name;
+            Username = user;
+            Email = email;
+            Ratings = ratings;
+            friendsList = friends;
+            AuthStatus = authorized;
         }
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public string Username
-        {
-            get { return username; }
-            set { username = value;  }
-        }
-
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
-
-        public string Password
-        {
-            get { return password; }
-            set { password = value; }
-        }
-        
         public double getRating()
         {
-            if (rating.Count == 0) return 0;
+            string[] rats = Ratings.Split(new char[1] {','});
+            if (rats.Length == 0) return 0;
             else
             {
                 double sum = 0;
-                foreach (double d in rating) sum += d;
+                foreach (string s in rats)
+                {
+                    double temp = Convert.ToDouble(s);
+                    sum += temp;
+                }
                 if (sum == 0) return 0;
-                else return (double) sum / rating.Count;
+                else return (double) sum / rats.Length;
             }
-        }
-
-        public string friendsList
-        {
-            get { return friends; }
-            set { friends = value; }
         }
     }
 }

@@ -28,6 +28,7 @@ namespace SWF_2340_15_8._1
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private string currUser;
 
         public MainMenu()
         {
@@ -68,6 +69,9 @@ namespace SWF_2340_15_8._1
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            var navArgs = (NavigationArgs)e.NavigationParameter;
+            currUser = navArgs.currUser;
+            if (navArgs.sender == typeof(login)) Frame.BackStack.Clear();
         }
 
         /// <summary>
@@ -109,24 +113,19 @@ namespace SWF_2340_15_8._1
 
         #endregion
 
-        private async void logout_Click(object sender, RoutedEventArgs e)
+        private void logout_Click(object sender, RoutedEventArgs e)
         {
-            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
-            await conn.CreateTableAsync<UserTable>();
-            var user = await conn.Table<UserTable>().Where(x => x.authStatus == true).FirstOrDefaultAsync();
-            user.authStatus = false;
-            await conn.UpdateAsync(user);
             this.Frame.Navigate(typeof(MainPage));
         }
 
         private void AddFriend_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(NewFriend));
+            this.Frame.Navigate(typeof(NewFriend), new NavigationArgs() { currUser = this.currUser });
         }
 
         private void AddReq_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(NewRequest));
+            this.Frame.Navigate(typeof(NewRequest), new NavigationArgs() { currUser = this.currUser });
         }
     }
 }

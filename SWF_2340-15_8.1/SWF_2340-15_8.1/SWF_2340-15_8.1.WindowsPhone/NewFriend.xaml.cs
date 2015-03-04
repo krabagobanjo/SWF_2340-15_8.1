@@ -29,6 +29,7 @@ namespace SWF_2340_15_8._1
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private string currUser;
 
         public NewFriend()
         {
@@ -69,6 +70,8 @@ namespace SWF_2340_15_8._1
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            var navArgs = (NavigationArgs)e.NavigationParameter;
+            currUser = navArgs.currUser;
         }
 
         /// <summary>
@@ -124,30 +127,26 @@ namespace SWF_2340_15_8._1
             }
             else
             {
-                //TODO: add friends!
-                var usr = await conn.Table<UserTable>().Where(x => x.authStatus == true).FirstOrDefaultAsync();
-                if (usr == null) throw new NullReferenceException();
+                if (currUser == user.username)
+                {
+                    var msg = new MessageDialog("I can't allow you to friend yourself!  I'll be your friend :-)");
+                    await msg.ShowAsync();
+                }
+                if (user.friends.IndexOf(currUser) != -1)
+                {
+                    var msg = new MessageDialog("Already your friend!");
+                    await msg.ShowAsync();
+                }
                 else
                 {
-                    if (usr.username == user.username)
-                    {
-                        var msg = new MessageDialog("I can't allow you to friend yourself!  I'll be your friend :-)");
-                        await msg.ShowAsync();
-                    }
-                    if (usr.friends.IndexOf(user.username) != -1)
-                    {
-                        var msg = new MessageDialog("Already your friend!");
-                        await msg.ShowAsync();
-                    }
-                    else
-                    {
-                        usr.friends += (user.username + ",");
-                        user.friends += (usr.username + ",");
-                        await conn.UpdateAsync(usr);
-                        await conn.UpdateAsync(user);
-                        var msg = new MessageDialog("User added!");
-                        await msg.ShowAsync();
-                    }
+                    var usr = await conn.Table<UserTable>().Where(x => x.username == currUser).FirstOrDefaultAsync();
+                    if (usr == null) throw new NullReferenceException();
+                    usr.friends += (user.username + ",");
+                    user.friends += (usr.username + ",");
+                    await conn.UpdateAsync(usr);
+                    await conn.UpdateAsync(user);
+                    var msg = new MessageDialog("User added!");
+                    await msg.ShowAsync();
                 }
             }
         }

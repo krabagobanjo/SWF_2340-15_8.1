@@ -16,6 +16,5 @@ namespace SWF_2340_15_8._1
         public string password { get; set; }
         public double rating { get; set; }
         public string friends { get; set; }
-        public bool authStatus { get; set; }
     }
 }
