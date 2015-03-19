@@ -8,7 +8,7 @@
     x:Class="SWF_2340_15_8._1.MainMenu"
     mc:Ignorable="d"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DataContext="{d:DesignData /SampleData/Database/Database.xaml}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Name="AddFriend" Icon="AddFriend" Label="Add Friend" Click="AddFriend_Click"/>
@@ -28,20 +28,25 @@
 					<Grid/>
 				</PivotItem>
 				<PivotItem Header="Friends">
-					<ListView 
-						AutomationProperties.AutomationId="ItemListViewSection4"
-						AutomationProperties.Name="Items In Group"
+                    <ListView 
+                        x:Name="FrLst"
+						AutomationProperties.AutomationId="FriendsList"
+						AutomationProperties.Name="FriendsList"
 						SelectionMode="Single"
 						IsItemClickEnabled="True"
-						ContinuumNavigationTransitionInfo.ExitElementContainer="True">
-						<ListView.ItemTemplate>
-							<DataTemplate>
-								<StackPanel Margin="0,0,0,19">
-									<TextBlock Text="{Binding Property1}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
-									<TextBlock Text="{Binding Property2}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
-								</StackPanel>
-							</DataTemplate>
-						</ListView.ItemTemplate>
+						ContinuumNavigationTransitionInfo.ExitElementContainer="True"
+                        ItemsSource="{Binding}">
+                        <ListView.Resources>
+                            <DataTemplate x:Key="User">
+                                <StackPanel Margin="0,0,0,19">
+                                    <TextBlock Text="{Binding Name}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
+                                    <TextBlock Text="{Binding Username}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.Resources>
+                        <ListView.ItemTemplate>
+                            <StaticResource ResourceKey="User" />
+                        </ListView.ItemTemplate>
 					</ListView>
 				</PivotItem>
 			</Pivot>

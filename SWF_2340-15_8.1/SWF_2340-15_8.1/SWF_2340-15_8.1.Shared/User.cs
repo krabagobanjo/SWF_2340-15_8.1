@@ -6,13 +6,12 @@ namespace SWF_2340_15_8._1
 {
     class User
     {
-        public bool AuthStatus { get; private set; }
         public string Name { get; private set; }
         public string Username { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
         public string friendsList { get; private set; }
-        private string Ratings { get; private set; }
+        public string Ratings { get; private set; }
 
         public User(string name, string user, string email, string password)
         {
@@ -22,17 +21,15 @@ namespace SWF_2340_15_8._1
             Password = password;
             Ratings = "";
             friendsList = "";
-            AuthStatus = false;
         }
 
-        public User(string name, string user, string email, string ratings, string friends, bool authorized)
+        public User(string name, string user, string email, string ratings, string friends)
         {
             Name = name;
             Username = user;
             Email = email;
             Ratings = ratings;
             friendsList = friends;
-            AuthStatus = authorized;
         }
 
         public double getRating()

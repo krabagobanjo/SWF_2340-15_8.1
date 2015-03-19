@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using SQLite;
+using System.Collections.ObjectModel;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -29,6 +30,7 @@ namespace SWF_2340_15_8._1
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private string currUser;
+        ObservableCollection<User> friendCollection = new ObservableCollection<User>();
 
         public MainMenu()
         {
@@ -37,6 +39,7 @@ namespace SWF_2340_15_8._1
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+            FrLst.DataContext = friendCollection;
         }
 
         /// <summary>
@@ -67,11 +70,21 @@ namespace SWF_2340_15_8._1
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested and
         /// a dictionary of state preserved by this page during an earlier
         /// session.  The state will be null the first time a page is visited.</param>
-        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
+            await conn.CreateTableAsync<UserTable>();
             var navArgs = (NavigationArgs)e.NavigationParameter;
             currUser = navArgs.currUser;
-            if (navArgs.sender == typeof(login)) Frame.BackStack.Clear();
+
+            var user = await conn.Table<UserTable>().Where(x => x.username == currUser).FirstOrDefaultAsync();
+            string friendList = user.friends;
+            string[] friendsArr = friendList.Split(',');
+            foreach (string s in friendsArr)
+            {
+                var friend = await conn.Table<UserTable>().Where(x => x.username == s).FirstOrDefaultAsync();
+                if (friend != null) friendCollection.Add(new User(friend.name, friend.username, friend.email, "", friend.friends));
+            }
         }
 
         /// <summary>
@@ -103,6 +116,8 @@ namespace SWF_2340_15_8._1
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            var navArgs = (NavigationArgs)e.Parameter;
+            if (navArgs.sender.Equals(typeof(login))) this.Frame.BackStack.Clear();
             this.navigationHelper.OnNavigatedTo(e);
         }
 
@@ -112,6 +127,14 @@ namespace SWF_2340_15_8._1
         }
 
         #endregion
+
+        private void friendClick(object sender, ItemClickEventArgs e)
+        {
+            // Navigate to the appropriate destination page, configuring the new page
+            // by passing required information as a navigation parameter
+            User friend = ((User)e.ClickedItem);
+            //Frame.Navigate(typeof(ItemPage), friend);
+        }
 
         private void logout_Click(object sender, RoutedEventArgs e)
         {

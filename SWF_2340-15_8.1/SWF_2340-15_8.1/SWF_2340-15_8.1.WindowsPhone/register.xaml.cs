@@ -124,9 +124,8 @@ namespace SWF_2340_15_8._1
                     username = newUser.Username,
                     email = newUser.Email,
                     password = newUser.Password,
-                    rating = newUser.getRating(),
+                    rating = newUser.Ratings,
                     friends = newUser.friendsList,
-                    authStatus = false
                 };
                 await conn.InsertAsync(us);
                 var msg = new MessageDialog("User successfully added");
