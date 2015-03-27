@@ -15,8 +15,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using SQLite;
-using Windows.UI.Popups;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -25,13 +23,12 @@ namespace SWF_2340_15_8._1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class NewRequest : Page
+    public sealed partial class FriendView : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private string currUser;
 
-        public NewRequest()
+        public FriendView()
         {
             this.InitializeComponent();
 
@@ -70,8 +67,6 @@ namespace SWF_2340_15_8._1
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            var navArgs = (NavigationArgs)e.NavigationParameter;
-            currUser = navArgs.currUser;
         }
 
         /// <summary>
@@ -112,18 +107,5 @@ namespace SWF_2340_15_8._1
         }
 
         #endregion
-
-        private async void AddReq_Click(object sender, RoutedEventArgs e)
-        {
-            string name = ItemName.Text;
-            string pr = ItemPrice.Text;
-            double price = Convert.ToDouble(pr);
-            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
-            await conn.CreateTableAsync<Request>();
-            Request req = new Request(currUser, name, price);
-            await conn.InsertAsync(req);
-            var msg = new MessageDialog("Request Added");
-            await msg.ShowAsync();
-        }
     }
 }

@@ -12,20 +12,57 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:ConnectionId='1' x:Name="AddFriend" Icon="AddFriend" Label="Add Friend"                        />
-            <AppBarButton x:ConnectionId='2' x:Name="AddReq" Label="New Request"                      Icon="Add" />
-            <AppBarButton x:ConnectionId='3' x:Name="logout" Icon="Cancel" Label="Logout"                     />
+            <AppBarButton x:ConnectionId='2' x:Name="AddReq" Label="New Request"                      Icon="Add" FontSize="12" />
+            <AppBarButton x:ConnectionId='3' x:Name="AddRep" Icon="Add" Label="New Report"                     />
+            <AppBarButton x:ConnectionId='4' x:Name="logout" Icon="Cancel" Label="Logout"                     />
         </CommandBar>
     </Page.BottomAppBar>
 	<Grid x:Name="LayoutRoot">
 
         <!--TODO: Content should be placed within the following grid-->
 		<Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-			<Pivot Title="Shopping With Friends" Margin="0,1,0,-1">
+			<Pivot x:ConnectionId='5' x:Name="Navigation" Title="Shopping With Friends" Margin="0,1,0,-1"                                               >
 				<PivotItem Header="Reports">
-					<Grid/>
+                    <Grid>
+                        <ListView
+                            x:Name="RepLst"
+                            SelectionMode="Single"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{Binding}">
+                            <ListView.Resources>
+                                <DataTemplate x:Key="Report">
+                                    <StackPanel Margin="0,0,0,19">
+                                        <TextBlock Text="{Binding item}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding price}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.Resources>
+                            <ListView.ItemTemplate>
+                                <StaticResource ResourceKey="Report" />
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
 				</PivotItem>
 				<PivotItem Header="Requests">
-					<Grid/>
+                    <Grid>
+                        <ListView
+                            x:Name="ReqLst"
+                            SelectionMode="Single"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{Binding}">
+                            <ListView.Resources>
+                                <DataTemplate x:Key="Request">
+                                    <StackPanel Margin="0,0,0,19">
+                                        <TextBlock Text="{Binding item}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding maxPrice}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.Resources>
+                            <ListView.ItemTemplate>
+                                <StaticResource ResourceKey="Request" />
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
 				</PivotItem>
 				<PivotItem Header="Friends">
                     <ListView 

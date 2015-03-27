@@ -89,6 +89,9 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="FriendView.xaml.cs">
+      <DependentUpon>FriendView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,9 @@
     </Compile>
     <Compile Include="NewFriend.xaml.cs">
       <DependentUpon>NewFriend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewReport.xaml.cs">
+      <DependentUpon>NewReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewRequest.xaml.cs">
       <DependentUpon>NewRequest.xaml</DependentUpon>
@@ -123,6 +129,10 @@
     <Content Include="Assets\WideLogo.scale-240.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="FriendView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +146,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="NewFriend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,8 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
 using SQLite;
-using System.Collections.ObjectModel;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -25,25 +25,19 @@ namespace SWF_2340_15_8._1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainMenu : Page
+    public sealed partial class NewReport : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private string currUser;
-        ObservableCollection<User> friendCollection = new ObservableCollection<User>();
-        ObservableCollection<Request> reqCollection = new ObservableCollection<Request>();
-        ObservableCollection<Report> repCollection = new ObservableCollection<Report>();
 
-        public MainMenu()
+        public NewReport()
         {
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
-            FrLst.DataContext = friendCollection;
-            RepLst.DataContext = repCollection;
-            ReqLst.DataContext = reqCollection;
         }
 
         /// <summary>
@@ -74,36 +68,10 @@ namespace SWF_2340_15_8._1
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested and
         /// a dictionary of state preserved by this page during an earlier
         /// session.  The state will be null the first time a page is visited.</param>
-        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
-            await conn.CreateTableAsync<UserTable>();
-            await conn.CreateTableAsync<Request>();
-            await conn.CreateTableAsync<Report>();
-
             var navArgs = (NavigationArgs)e.NavigationParameter;
             currUser = navArgs.currUser;
-
-            var requests = await conn.Table<Request>().ToListAsync();
-            foreach (var i in requests)
-            {
-                reqCollection.Add(new Request(i.owner, i.item, i.maxPrice));
-            }
-
-            var reports = await conn.Table<Report>().ToListAsync();
-            foreach (var i in reports)
-            {
-                repCollection.Add(new Report(i.owner, i.item, i.price, i.location));
-            }
-
-            var user = await conn.Table<UserTable>().Where(x => x.username == currUser).FirstOrDefaultAsync();
-            string friendList = user.friends;
-            string[] friendsArr = friendList.Split(',');
-            foreach (string s in friendsArr)
-            {
-                var friend = await conn.Table<UserTable>().Where(x => x.username == s).FirstOrDefaultAsync();
-                if (friend != null) friendCollection.Add(new User(friend.name, friend.username, friend.email, "", friend.friends));
-            }
         }
 
         /// <summary>
@@ -135,8 +103,6 @@ namespace SWF_2340_15_8._1
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var navArgs = (NavigationArgs)e.Parameter;
-            if (navArgs.sender.Equals(typeof(login))) this.Frame.BackStack.Clear();
             this.navigationHelper.OnNavigatedTo(e);
         }
 
@@ -147,63 +113,18 @@ namespace SWF_2340_15_8._1
 
         #endregion
 
-        private void friendClick(object sender, ItemClickEventArgs e)
+        private async void AddRep_Click(object sender, RoutedEventArgs e)
         {
-            // Navigate to the appropriate destination page, configuring the new page
-            // by passing required information as a navigation parameter
-            User friend = ((User)e.ClickedItem);
-            //Frame.Navigate(typeof(ItemPage), friend);
-        }
-
-        private void logout_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage));
-        }
-
-        private void AddFriend_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(NewFriend), new NavigationArgs() { currUser = this.currUser });
-        }
-
-        private void AddReq_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(NewRequest), new NavigationArgs() { currUser = this.currUser });
-        }
-
-        private void AddRep_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(NewReport), new NavigationArgs() { currUser = this.currUser });
-        }
-
-        private void Navigation_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            AddReq.Visibility = Visibility.Collapsed;
-            AddRep.Visibility = Visibility.Collapsed;
-            AddFriend.Visibility = Visibility.Collapsed;
-            logout.Visibility = Visibility.Collapsed;
-            switch(Navigation.SelectedIndex)
-            {
-                case 0:
-                    AddFriend.Visibility = Visibility.Collapsed;
-                    AddReq.Visibility = Visibility.Collapsed;
-                    AddRep.Visibility = Visibility.Visible;
-                    logout.Visibility = Visibility.Visible;
-                    break;
-                case 1:
-                    AddFriend.Visibility = Visibility.Collapsed;
-                    AddReq.Visibility = Visibility.Visible;
-                    AddRep.Visibility = Visibility.Collapsed;
-                    logout.Visibility = Visibility.Visible;
-                    break;
-                case 2:
-                    AddReq.Visibility = Visibility.Collapsed;
-                    AddRep.Visibility = Visibility.Collapsed;
-                    AddFriend.Visibility = Visibility.Visible;
-                    logout.Visibility = Visibility.Visible;
-                    break;
-                default:
-                    break;
-            }
+            string name = ItemName.Text;
+            string pr = ItemPrice.Text;
+            double price = Convert.ToDouble(pr);
+            string loc = ItemLoc.Text;
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
+            await conn.CreateTableAsync<Report>();
+            Report rep = new Report(currUser, name, price, loc);
+            await conn.InsertAsync(rep);
+            var msg = new MessageDialog("Report Added");
+            await msg.ShowAsync();
         }
     }
 }

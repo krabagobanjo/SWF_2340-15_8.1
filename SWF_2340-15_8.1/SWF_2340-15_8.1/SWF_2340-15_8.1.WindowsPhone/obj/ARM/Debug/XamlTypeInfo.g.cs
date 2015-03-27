@@ -124,37 +124,41 @@ namespace SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[14];
-            _typeNameTable[0] = "Windows.ApplicationModel.Resources.ResourceLoader";
-            _typeNameTable[1] = "Object";
-            _typeNameTable[2] = "SWF_2340_15_8._1.login";
-            _typeNameTable[3] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[5] = "SWF_2340_15_8._1.Common.NavigationHelper";
-            _typeNameTable[6] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[7] = "SWF_2340_15_8._1.Common.ObservableDictionary";
-            _typeNameTable[8] = "String";
-            _typeNameTable[9] = "SWF_2340_15_8._1.MainMenu";
-            _typeNameTable[10] = "SWF_2340_15_8._1.MainPage";
-            _typeNameTable[11] = "SWF_2340_15_8._1.NewFriend";
-            _typeNameTable[12] = "SWF_2340_15_8._1.NewRequest";
-            _typeNameTable[13] = "SWF_2340_15_8._1.register";
+            _typeNameTable = new string[16];
+            _typeNameTable[0] = "SWF_2340_15_8._1.FriendView";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "SWF_2340_15_8._1.Common.NavigationHelper";
+            _typeNameTable[4] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[5] = "SWF_2340_15_8._1.Common.ObservableDictionary";
+            _typeNameTable[6] = "Object";
+            _typeNameTable[7] = "String";
+            _typeNameTable[8] = "Windows.ApplicationModel.Resources.ResourceLoader";
+            _typeNameTable[9] = "SWF_2340_15_8._1.login";
+            _typeNameTable[10] = "SWF_2340_15_8._1.MainMenu";
+            _typeNameTable[11] = "SWF_2340_15_8._1.MainPage";
+            _typeNameTable[12] = "SWF_2340_15_8._1.NewFriend";
+            _typeNameTable[13] = "SWF_2340_15_8._1.NewReport";
+            _typeNameTable[14] = "SWF_2340_15_8._1.NewRequest";
+            _typeNameTable[15] = "SWF_2340_15_8._1.register";
 
-            _typeTable = new global::System.Type[14];
-            _typeTable[0] = typeof(global::Windows.ApplicationModel.Resources.ResourceLoader);
-            _typeTable[1] = typeof(global::System.Object);
-            _typeTable[2] = typeof(global::SWF_2340_15_8._1.login);
-            _typeTable[3] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[5] = typeof(global::SWF_2340_15_8._1.Common.NavigationHelper);
-            _typeTable[6] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[7] = typeof(global::SWF_2340_15_8._1.Common.ObservableDictionary);
-            _typeTable[8] = typeof(global::System.String);
-            _typeTable[9] = typeof(global::SWF_2340_15_8._1.MainMenu);
-            _typeTable[10] = typeof(global::SWF_2340_15_8._1.MainPage);
-            _typeTable[11] = typeof(global::SWF_2340_15_8._1.NewFriend);
-            _typeTable[12] = typeof(global::SWF_2340_15_8._1.NewRequest);
-            _typeTable[13] = typeof(global::SWF_2340_15_8._1.register);
+            _typeTable = new global::System.Type[16];
+            _typeTable[0] = typeof(global::SWF_2340_15_8._1.FriendView);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::SWF_2340_15_8._1.Common.NavigationHelper);
+            _typeTable[4] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[5] = typeof(global::SWF_2340_15_8._1.Common.ObservableDictionary);
+            _typeTable[6] = typeof(global::System.Object);
+            _typeTable[7] = typeof(global::System.String);
+            _typeTable[8] = typeof(global::Windows.ApplicationModel.Resources.ResourceLoader);
+            _typeTable[9] = typeof(global::SWF_2340_15_8._1.login);
+            _typeTable[10] = typeof(global::SWF_2340_15_8._1.MainMenu);
+            _typeTable[11] = typeof(global::SWF_2340_15_8._1.MainPage);
+            _typeTable[12] = typeof(global::SWF_2340_15_8._1.NewFriend);
+            _typeTable[13] = typeof(global::SWF_2340_15_8._1.NewReport);
+            _typeTable[14] = typeof(global::SWF_2340_15_8._1.NewRequest);
+            _typeTable[15] = typeof(global::SWF_2340_15_8._1.register);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -189,15 +193,17 @@ namespace SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_ResourceLoader() { return new global::Windows.ApplicationModel.Resources.ResourceLoader(); }
-        private object Activate_2_login() { return new global::SWF_2340_15_8._1.login(); }
-        private object Activate_7_ObservableDictionary() { return new global::SWF_2340_15_8._1.Common.ObservableDictionary(); }
-        private object Activate_9_MainMenu() { return new global::SWF_2340_15_8._1.MainMenu(); }
-        private object Activate_10_MainPage() { return new global::SWF_2340_15_8._1.MainPage(); }
-        private object Activate_11_NewFriend() { return new global::SWF_2340_15_8._1.NewFriend(); }
-        private object Activate_12_NewRequest() { return new global::SWF_2340_15_8._1.NewRequest(); }
-        private object Activate_13_register() { return new global::SWF_2340_15_8._1.register(); }
-        private void MapAdd_7_ObservableDictionary(object instance, object key, object item)
+        private object Activate_0_FriendView() { return new global::SWF_2340_15_8._1.FriendView(); }
+        private object Activate_5_ObservableDictionary() { return new global::SWF_2340_15_8._1.Common.ObservableDictionary(); }
+        private object Activate_8_ResourceLoader() { return new global::Windows.ApplicationModel.Resources.ResourceLoader(); }
+        private object Activate_9_login() { return new global::SWF_2340_15_8._1.login(); }
+        private object Activate_10_MainMenu() { return new global::SWF_2340_15_8._1.MainMenu(); }
+        private object Activate_11_MainPage() { return new global::SWF_2340_15_8._1.MainPage(); }
+        private object Activate_12_NewFriend() { return new global::SWF_2340_15_8._1.NewFriend(); }
+        private object Activate_13_NewReport() { return new global::SWF_2340_15_8._1.NewReport(); }
+        private object Activate_14_NewRequest() { return new global::SWF_2340_15_8._1.NewRequest(); }
+        private object Activate_15_register() { return new global::SWF_2340_15_8._1.register(); }
+        private void MapAdd_5_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
@@ -215,93 +221,111 @@ namespace SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  Windows.ApplicationModel.Resources.ResourceLoader
-                userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_0_ResourceLoader;
-                xamlType = userType;
-                break;
-
-            case 1:   //  Object
-                xamlType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 2:   //  SWF_2340_15_8._1.login
+            case 0:   //  SWF_2340_15_8._1.FriendView
                 userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_2_login;
+                userType.Activator = Activate_0_FriendView;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 3:   //  Windows.UI.Xaml.Controls.Page
+            case 1:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 4:   //  Windows.UI.Xaml.Controls.UserControl
+            case 2:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  SWF_2340_15_8._1.Common.NavigationHelper
+            case 3:   //  SWF_2340_15_8._1.Common.NavigationHelper
                 userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  Windows.UI.Xaml.DependencyObject
+            case 4:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  SWF_2340_15_8._1.Common.ObservableDictionary
+            case 5:   //  SWF_2340_15_8._1.Common.ObservableDictionary
                 userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_7_ObservableDictionary;
+                userType.DictionaryAdd = MapAdd_5_ObservableDictionary;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  String
+            case 6:   //  Object
                 xamlType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 9:   //  SWF_2340_15_8._1.MainMenu
+            case 7:   //  String
+                xamlType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Windows.ApplicationModel.Resources.ResourceLoader
+                userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_8_ResourceLoader;
+                xamlType = userType;
+                break;
+
+            case 9:   //  SWF_2340_15_8._1.login
                 userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_MainMenu;
+                userType.Activator = Activate_9_login;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  SWF_2340_15_8._1.MainPage
+            case 10:   //  SWF_2340_15_8._1.MainMenu
                 userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_MainPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 11:   //  SWF_2340_15_8._1.NewFriend
-                userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_NewFriend;
+                userType.Activator = Activate_10_MainMenu;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  SWF_2340_15_8._1.NewRequest
+            case 11:   //  SWF_2340_15_8._1.MainPage
                 userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_12_NewRequest;
+                userType.Activator = Activate_11_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 12:   //  SWF_2340_15_8._1.NewFriend
+                userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_12_NewFriend;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 13:   //  SWF_2340_15_8._1.register
+            case 13:   //  SWF_2340_15_8._1.NewReport
                 userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_13_register;
+                userType.Activator = Activate_13_NewReport;
+                userType.AddMemberName("NavigationHelper");
+                userType.AddMemberName("DefaultViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  SWF_2340_15_8._1.NewRequest
+                userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_14_NewRequest;
+                userType.AddMemberName("NavigationHelper");
+                userType.AddMemberName("DefaultViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  SWF_2340_15_8._1.register
+                userType = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_register;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
@@ -312,52 +336,72 @@ namespace SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo
         }
 
 
-        private object get_0_login_NavigationHelper(object instance)
+        private object get_0_FriendView_NavigationHelper(object instance)
+        {
+            var that = (global::SWF_2340_15_8._1.FriendView)instance;
+            return that.NavigationHelper;
+        }
+        private object get_1_FriendView_DefaultViewModel(object instance)
+        {
+            var that = (global::SWF_2340_15_8._1.FriendView)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_2_login_NavigationHelper(object instance)
         {
             var that = (global::SWF_2340_15_8._1.login)instance;
             return that.NavigationHelper;
         }
-        private object get_1_login_DefaultViewModel(object instance)
+        private object get_3_login_DefaultViewModel(object instance)
         {
             var that = (global::SWF_2340_15_8._1.login)instance;
             return that.DefaultViewModel;
         }
-        private object get_2_MainMenu_NavigationHelper(object instance)
+        private object get_4_MainMenu_NavigationHelper(object instance)
         {
             var that = (global::SWF_2340_15_8._1.MainMenu)instance;
             return that.NavigationHelper;
         }
-        private object get_3_MainMenu_DefaultViewModel(object instance)
+        private object get_5_MainMenu_DefaultViewModel(object instance)
         {
             var that = (global::SWF_2340_15_8._1.MainMenu)instance;
             return that.DefaultViewModel;
         }
-        private object get_4_NewFriend_NavigationHelper(object instance)
+        private object get_6_NewFriend_NavigationHelper(object instance)
         {
             var that = (global::SWF_2340_15_8._1.NewFriend)instance;
             return that.NavigationHelper;
         }
-        private object get_5_NewFriend_DefaultViewModel(object instance)
+        private object get_7_NewFriend_DefaultViewModel(object instance)
         {
             var that = (global::SWF_2340_15_8._1.NewFriend)instance;
             return that.DefaultViewModel;
         }
-        private object get_6_NewRequest_NavigationHelper(object instance)
+        private object get_8_NewReport_NavigationHelper(object instance)
+        {
+            var that = (global::SWF_2340_15_8._1.NewReport)instance;
+            return that.NavigationHelper;
+        }
+        private object get_9_NewReport_DefaultViewModel(object instance)
+        {
+            var that = (global::SWF_2340_15_8._1.NewReport)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_10_NewRequest_NavigationHelper(object instance)
         {
             var that = (global::SWF_2340_15_8._1.NewRequest)instance;
             return that.NavigationHelper;
         }
-        private object get_7_NewRequest_DefaultViewModel(object instance)
+        private object get_11_NewRequest_DefaultViewModel(object instance)
         {
             var that = (global::SWF_2340_15_8._1.NewRequest)instance;
             return that.DefaultViewModel;
         }
-        private object get_8_register_NavigationHelper(object instance)
+        private object get_12_register_NavigationHelper(object instance)
         {
             var that = (global::SWF_2340_15_8._1.register)instance;
             return that.NavigationHelper;
         }
-        private object get_9_register_DefaultViewModel(object instance)
+        private object get_13_register_DefaultViewModel(object instance)
         {
             var that = (global::SWF_2340_15_8._1.register)instance;
             return that.DefaultViewModel;
@@ -370,64 +414,88 @@ namespace SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "SWF_2340_15_8._1.FriendView.NavigationHelper":
+                userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.FriendView");
+                xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "SWF_2340_15_8._1.Common.NavigationHelper");
+                xamlMember.Getter = get_0_FriendView_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "SWF_2340_15_8._1.FriendView.DefaultViewModel":
+                userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.FriendView");
+                xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "SWF_2340_15_8._1.Common.ObservableDictionary");
+                xamlMember.Getter = get_1_FriendView_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
             case "SWF_2340_15_8._1.login.NavigationHelper":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.login");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "SWF_2340_15_8._1.Common.NavigationHelper");
-                xamlMember.Getter = get_0_login_NavigationHelper;
+                xamlMember.Getter = get_2_login_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SWF_2340_15_8._1.login.DefaultViewModel":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.login");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "SWF_2340_15_8._1.Common.ObservableDictionary");
-                xamlMember.Getter = get_1_login_DefaultViewModel;
+                xamlMember.Getter = get_3_login_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SWF_2340_15_8._1.MainMenu.NavigationHelper":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.MainMenu");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "SWF_2340_15_8._1.Common.NavigationHelper");
-                xamlMember.Getter = get_2_MainMenu_NavigationHelper;
+                xamlMember.Getter = get_4_MainMenu_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SWF_2340_15_8._1.MainMenu.DefaultViewModel":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.MainMenu");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "SWF_2340_15_8._1.Common.ObservableDictionary");
-                xamlMember.Getter = get_3_MainMenu_DefaultViewModel;
+                xamlMember.Getter = get_5_MainMenu_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SWF_2340_15_8._1.NewFriend.NavigationHelper":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.NewFriend");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "SWF_2340_15_8._1.Common.NavigationHelper");
-                xamlMember.Getter = get_4_NewFriend_NavigationHelper;
+                xamlMember.Getter = get_6_NewFriend_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SWF_2340_15_8._1.NewFriend.DefaultViewModel":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.NewFriend");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "SWF_2340_15_8._1.Common.ObservableDictionary");
-                xamlMember.Getter = get_5_NewFriend_DefaultViewModel;
+                xamlMember.Getter = get_7_NewFriend_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "SWF_2340_15_8._1.NewReport.NavigationHelper":
+                userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.NewReport");
+                xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "SWF_2340_15_8._1.Common.NavigationHelper");
+                xamlMember.Getter = get_8_NewReport_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "SWF_2340_15_8._1.NewReport.DefaultViewModel":
+                userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.NewReport");
+                xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "SWF_2340_15_8._1.Common.ObservableDictionary");
+                xamlMember.Getter = get_9_NewReport_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SWF_2340_15_8._1.NewRequest.NavigationHelper":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.NewRequest");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "SWF_2340_15_8._1.Common.NavigationHelper");
-                xamlMember.Getter = get_6_NewRequest_NavigationHelper;
+                xamlMember.Getter = get_10_NewRequest_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SWF_2340_15_8._1.NewRequest.DefaultViewModel":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.NewRequest");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "SWF_2340_15_8._1.Common.ObservableDictionary");
-                xamlMember.Getter = get_7_NewRequest_DefaultViewModel;
+                xamlMember.Getter = get_11_NewRequest_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SWF_2340_15_8._1.register.NavigationHelper":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.register");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "SWF_2340_15_8._1.Common.NavigationHelper");
-                xamlMember.Getter = get_8_register_NavigationHelper;
+                xamlMember.Getter = get_12_register_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "SWF_2340_15_8._1.register.DefaultViewModel":
                 userType = (global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SWF_2340_15_8._1.register");
                 xamlMember = new global::SWF_2340_15_8._1.SWF_2340_15_8_1_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "SWF_2340_15_8._1.Common.ObservableDictionary");
-                xamlMember.Getter = get_9_register_DefaultViewModel;
+                xamlMember.Getter = get_13_register_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

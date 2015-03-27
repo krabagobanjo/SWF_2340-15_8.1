@@ -56,3 +56,13 @@ D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_234
 D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\NewRequest.g.cs
 D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\NewRequest.xaml
 D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\NewRequest.xbf
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\NewReport.g.i.cs
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\NewReport.g.cs
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\ARM\Debug\NewReport.xbf
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\NewReport.xaml
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\NewReport.xbf
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\ARM\Debug\FriendView.xbf
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\FriendView.g.i.cs
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\FriendView.g.cs
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\FriendView.xaml
+D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\obj\ARM\Debug\FriendView.xbf
