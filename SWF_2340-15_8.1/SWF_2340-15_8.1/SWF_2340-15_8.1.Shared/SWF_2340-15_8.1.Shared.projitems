@@ -21,6 +21,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLiteAsync.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)User.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UserTable.cs" />
   </ItemGroup>
 </Project>

@@ -73,6 +73,12 @@
     <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\ARM\Debug\register.xbf">
       <PackagePath>register.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\ARM\Debug\ReportView.xbf">
+      <PackagePath>ReportView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\ARM\Debug\RequestView.xbf">
+      <PackagePath>RequestView.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\ARM\Debug\SWF_2340-15_8.1.WindowsPhone.xr.xml">
       <PackagePath>SWF_2340-15_8.1.WindowsPhone.xr.xml</PackagePath>
     </AppxPackagedFile>

@@ -117,17 +117,8 @@ namespace SWF_2340_15_8._1
             {
                 newUser = new User(nameBox.Text, usernameBox.Text, emailBox.Text, passBox.Password);
                 SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
-                await conn.CreateTableAsync<UserTable>();
-                UserTable us = new UserTable()
-                {
-                    name = newUser.Name,
-                    username = newUser.Username,
-                    email = newUser.Email,
-                    password = newUser.Password,
-                    rating = newUser.Ratings,
-                    friends = newUser.friendsList,
-                };
-                await conn.InsertAsync(us);
+                await conn.CreateTableAsync<User>();
+                await conn.InsertAsync(newUser);
                 var msg = new MessageDialog("User successfully added");
                 await msg.ShowAsync();
                 this.Frame.Navigate(typeof(MainPage));

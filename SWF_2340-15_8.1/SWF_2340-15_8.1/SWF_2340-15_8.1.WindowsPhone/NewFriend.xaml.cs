@@ -29,7 +29,7 @@ namespace SWF_2340_15_8._1
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private string currUser;
+        private User currUser;
 
         public NewFriend()
         {
@@ -116,10 +116,10 @@ namespace SWF_2340_15_8._1
         private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
-            await conn.CreateTableAsync<UserTable>();
+            await conn.CreateTableAsync<User>();
             String name = NameBox.Text;
             String email = MailBox.Text;
-            var user = await conn.Table<UserTable>().Where(x => x.name == name && x.email == email).FirstOrDefaultAsync();
+            var user = await conn.Table<User>().Where(x => x.Name == name && x.Email == email).FirstOrDefaultAsync();
             if (user == null)
             {
                 var msg = new MessageDialog("Couldn't Find User");
@@ -127,23 +127,21 @@ namespace SWF_2340_15_8._1
             }
             else
             {
-                if (currUser == user.username)
+                if (currUser == user)
                 {
                     var msg = new MessageDialog("I can't allow you to friend yourself!  I'll be your friend :-)");
                     await msg.ShowAsync();
                 }
-                if (user.friends.IndexOf(currUser) != -1)
+                if (currUser.friendsList.Contains(user.Username))
                 {
                     var msg = new MessageDialog("Already your friend!");
                     await msg.ShowAsync();
                 }
                 else
                 {
-                    var usr = await conn.Table<UserTable>().Where(x => x.username == currUser).FirstOrDefaultAsync();
-                    if (usr == null) throw new NullReferenceException();
-                    usr.friends += (user.username + ",");
-                    user.friends += (usr.username + ",");
-                    await conn.UpdateAsync(usr);
+                    currUser.friendsList += (user.Username + ",");
+                    user.friendsList += (currUser.Username + ",");
+                    await conn.UpdateAsync(currUser);
                     await conn.UpdateAsync(user);
                     var msg = new MessageDialog("User added!");
                     await msg.ShowAsync();

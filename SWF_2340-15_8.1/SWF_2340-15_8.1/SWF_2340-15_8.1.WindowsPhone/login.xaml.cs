@@ -115,13 +115,13 @@ namespace SWF_2340_15_8._1
         private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
-            await conn.CreateTableAsync<UserTable>();
+            await conn.CreateTableAsync<User>();
             string uName = username.Text;
             string pWord = password.Password;
-            var user = await conn.Table<UserTable>().Where(x => x.username == uName && x.password == pWord).FirstOrDefaultAsync();
+            var user = await conn.Table<User>().Where(x => x.Username == uName && x.Password == pWord).FirstOrDefaultAsync();
             if (user != null)
             {
-                this.Frame.Navigate(typeof(MainMenu), new NavigationArgs() { currUser = user.username, sender = typeof(MainMenu) });
+                this.Frame.Navigate(typeof(MainMenu), new NavigationArgs() { currUser = user, sender = typeof(MainMenu) });
             }
             else
             {

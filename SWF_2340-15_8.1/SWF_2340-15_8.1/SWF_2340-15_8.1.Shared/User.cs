@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using SQLite;
 namespace SWF_2340_15_8._1
 {
+    [Table("Users")]
     class User
     {
+        [PrimaryKey, AutoIncrement]
+        public int id { get; set; }
         public string Name { get; private set; }
         public string Username { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
-        public string friendsList { get; private set; }
+        public string friendsList { get; set; }
         public string Ratings { get; private set; }
+
+        public User() { }
 
         public User(string name, string user, string email, string password)
         {

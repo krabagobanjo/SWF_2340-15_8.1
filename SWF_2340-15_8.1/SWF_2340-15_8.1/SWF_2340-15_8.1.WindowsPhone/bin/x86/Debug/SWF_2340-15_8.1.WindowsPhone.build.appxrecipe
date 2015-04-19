@@ -49,14 +49,35 @@
     <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\FriendView.xbf">
+      <PackagePath>FriendView.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\login.xbf">
       <PackagePath>login.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\MainMenu.xbf">
+      <PackagePath>MainMenu.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\NewFriend.xbf">
+      <PackagePath>NewFriend.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\NewReport.xbf">
+      <PackagePath>NewReport.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\NewRequest.xbf">
+      <PackagePath>NewRequest.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\register.xbf">
       <PackagePath>register.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\ReportView.xbf">
+      <PackagePath>ReportView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\RequestView.xbf">
+      <PackagePath>RequestView.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Kyle Rabago-Banjo\My Documents\GitHub\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1\SWF_2340-15_8.1.WindowsPhone\bin\x86\Debug\SWF_2340-15_8.1.WindowsPhone.xr.xml">
       <PackagePath>SWF_2340-15_8.1.WindowsPhone.xr.xml</PackagePath>

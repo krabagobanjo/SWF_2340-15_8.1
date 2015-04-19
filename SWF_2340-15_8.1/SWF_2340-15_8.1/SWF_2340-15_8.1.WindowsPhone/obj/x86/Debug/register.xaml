@@ -20,11 +20,10 @@
         <TextBlock x:Name="passwordHeader" x:Uid="passwordHeader" HorizontalAlignment="Left" Margin="20,208,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
         <TextBox x:Name="emailBox" HorizontalAlignment="Left" Margin="20,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" InputScope="EmailSmtpAddress" FontFamily="Global User Interface"/>
         <PasswordBox x:Name="passConBox" HorizontalAlignment="Left" Margin="20,283,0,0" VerticalAlignment="Top" Width="348"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="20,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="345" InputScope="NameOrPhoneNumber"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="20,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" InputScope="NameOrPhoneNumber"/>
         <TextBlock x:Name="nameHeader" x:Uid="nameHeader" HorizontalAlignment="Left" Margin="20,22,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
         <TextBlock x:Name="emailHeader" x:Uid="emailHeader" HorizontalAlignment="Left" Margin="20,146,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
         <TextBlock x:Name="passConfirm" x:Uid="passConfirm" HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Confirm Password" VerticalAlignment="Top"/>
-
     </Grid>
 </Page>
 

@@ -27,6 +27,8 @@ namespace SWF_2340_15_8._1
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private User currUser;
+        private User clickedUser;
 
         public FriendView()
         {
@@ -67,6 +69,10 @@ namespace SWF_2340_15_8._1
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            var navarg = (NavigationArgs) e.NavigationParameter;
+            currUser = navarg.currUser;
+            clickedUser = navarg.aUser;
+
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ namespace SWF_2340_15_8._1
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private string currUser;
+        private User currUser;
 
         public NewReport()
         {
@@ -121,7 +121,7 @@ namespace SWF_2340_15_8._1
             string loc = ItemLoc.Text;
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
             await conn.CreateTableAsync<Report>();
-            Report rep = new Report(currUser, name, price, loc);
+            Report rep = new Report(currUser.Username, name, price, loc);
             await conn.InsertAsync(rep);
             var msg = new MessageDialog("Report Added");
             await msg.ShowAsync();

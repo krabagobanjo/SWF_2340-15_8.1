@@ -28,7 +28,7 @@
                             x:Name="RepLst"
                             SelectionMode="Single"
                             IsItemClickEnabled="True"
-                            ItemsSource="{Binding}">
+                            ItemsSource="{Binding}" ItemClick="repClick">
                             <ListView.Resources>
                                 <DataTemplate x:Key="Report">
                                     <StackPanel Margin="0,0,0,19">
@@ -49,7 +49,7 @@
                             x:Name="ReqLst"
                             SelectionMode="Single"
                             IsItemClickEnabled="True"
-                            ItemsSource="{Binding}">
+                            ItemsSource="{Binding}" ItemClick="reqClick">
                             <ListView.Resources>
                                 <DataTemplate x:Key="Request">
                                     <StackPanel Margin="0,0,0,19">
@@ -72,7 +72,7 @@
 						SelectionMode="Single"
 						IsItemClickEnabled="True"
 						ContinuumNavigationTransitionInfo.ExitElementContainer="True"
-                        ItemsSource="{Binding}">
+                        ItemsSource="{Binding}" ItemClick="userSelected">
                         <ListView.Resources>
                             <DataTemplate x:Key="User">
                                 <StackPanel Margin="0,0,0,19">

@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using SQLite;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -29,10 +30,12 @@ namespace SWF_2340_15_8._1
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private string currUser;
+        private User currUser;
         ObservableCollection<User> friendCollection = new ObservableCollection<User>();
         ObservableCollection<Request> reqCollection = new ObservableCollection<Request>();
         ObservableCollection<Report> repCollection = new ObservableCollection<Report>();
+        List<Request> userRequests = new List<Request>();
+        SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
 
         public MainMenu()
         {
@@ -76,34 +79,11 @@ namespace SWF_2340_15_8._1
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
-            await conn.CreateTableAsync<UserTable>();
-            await conn.CreateTableAsync<Request>();
-            await conn.CreateTableAsync<Report>();
-
             var navArgs = (NavigationArgs)e.NavigationParameter;
             currUser = navArgs.currUser;
-
-            var requests = await conn.Table<Request>().ToListAsync();
-            foreach (var i in requests)
-            {
-                reqCollection.Add(new Request(i.owner, i.item, i.maxPrice));
-            }
-
-            var reports = await conn.Table<Report>().ToListAsync();
-            foreach (var i in reports)
-            {
-                repCollection.Add(new Report(i.owner, i.item, i.price, i.location));
-            }
-
-            var user = await conn.Table<UserTable>().Where(x => x.username == currUser).FirstOrDefaultAsync();
-            string friendList = user.friends;
-            string[] friendsArr = friendList.Split(',');
-            foreach (string s in friendsArr)
-            {
-                var friend = await conn.Table<UserTable>().Where(x => x.username == s).FirstOrDefaultAsync();
-                if (friend != null) friendCollection.Add(new User(friend.name, friend.username, friend.email, "", friend.friends));
-            }
+            await getFriends();
+            await getRequests();
+            await getReports();
         }
 
         /// <summary>
@@ -175,7 +155,53 @@ namespace SWF_2340_15_8._1
             this.Frame.Navigate(typeof(NewReport), new NavigationArgs() { currUser = this.currUser });
         }
 
-        private void Navigation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async Task getFriends()
+        {
+            friendCollection.Clear();
+            await conn.CreateTableAsync<User>();
+            string friendList = currUser.friendsList;
+            string[] friendsArr = friendList.Split(',');
+            foreach (string s in friendsArr)
+            {
+                var friend = await conn.Table<User>().Where(x => x.Username == s).FirstOrDefaultAsync();
+                if (friend != null) 
+                    if (!friendCollection.Contains(friend)) friendCollection.Add(new User(friend.Name, friend.Username, friend.Email, "", friend.friendsList));
+            }
+        }
+
+        private async Task getReports()
+        {
+            repCollection.Clear();
+            await conn.CreateTableAsync<Report>();
+            var reports = await conn.Table<Report>().ToListAsync();
+            foreach (var i in reports)
+            {
+                if (currUser.friendsList.Contains(i.owner))
+                {
+                    foreach (Request r in reqCollection)
+                    {
+                        if (i.item == r.item && i.price <= r.maxPrice)
+                        {
+                            if (!repCollection.Contains(i)) repCollection.Add(new Report(i.owner, i.item, i.price, i.location));
+                        }
+                    }
+                }
+            }
+        }
+
+        private async Task getRequests()
+        {
+            reqCollection.Clear();
+            await conn.CreateTableAsync<Request>();
+            var requests = await conn.Table<Request>().ToListAsync();
+            foreach (var i in requests)
+            {
+                if (i.owner == currUser.Username && !userRequests.Contains(i)) userRequests.Add(i);
+                if (!reqCollection.Contains(i)) reqCollection.Add(new Request(i.owner, i.item, i.maxPrice));
+            }
+        }
+
+        private async void Navigation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AddReq.Visibility = Visibility.Collapsed;
             AddRep.Visibility = Visibility.Collapsed;
@@ -188,22 +214,43 @@ namespace SWF_2340_15_8._1
                     AddReq.Visibility = Visibility.Collapsed;
                     AddRep.Visibility = Visibility.Visible;
                     logout.Visibility = Visibility.Visible;
+                    await getReports();
                     break;
                 case 1:
                     AddFriend.Visibility = Visibility.Collapsed;
                     AddReq.Visibility = Visibility.Visible;
                     AddRep.Visibility = Visibility.Collapsed;
                     logout.Visibility = Visibility.Visible;
+                    await getRequests();
                     break;
                 case 2:
                     AddReq.Visibility = Visibility.Collapsed;
                     AddRep.Visibility = Visibility.Collapsed;
                     AddFriend.Visibility = Visibility.Visible;
                     logout.Visibility = Visibility.Visible;
+                    await getFriends();
                     break;
                 default:
                     break;
             }
+        }
+
+        private void userSelected(object sender, ItemClickEventArgs e)
+        {
+            User clicked = (User)e.ClickedItem;
+            this.Frame.Navigate(typeof(FriendView), new NavigationArgs() { aUser = clicked, currUser = this.currUser });
+        }
+
+        private void reqClick(object sender, ItemClickEventArgs e)
+        {
+            Request clicked = (Request)e.ClickedItem;
+            this.Frame.Navigate(typeof(RequestView), new NavigationArgs() { aRequest = clicked, currUser = this.currUser });
+        }
+
+        private void repClick(object sender, ItemClickEventArgs e)
+        {
+            Report clicked = (Report)e.ClickedItem;
+            this.Frame.Navigate(typeof(ReportView), new NavigationArgs() { aReport = clicked, currUser = this.currUser });
         }
     }
 }
