@@ -10,7 +10,6 @@ namespace SWF_2340_15_8._1
     {
         [PrimaryKey, AutoIncrement]
         public int id { get; set; }
-
         public string owner { get; private set; }
         public string item { get; private set; }
         public double maxPrice { get; private set; }

@@ -10,7 +10,7 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Name="RemoveFriend" Icon="Delete" Label="appbarbutton"/>
+            <AppBarButton x:Name="RemoveReport" Icon="Delete" Label="Delete" Click="DelRep"/>
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -35,10 +35,13 @@
 
         <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,73,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,108,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Name="OwnerField" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Name="ItemField" HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Name="PriceField" HorizontalAlignment="Left" Margin="10,73,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Name="NotesField" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <Button x:Name="ViewLoc" Content="View Location" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Click="ViewLoc_Click"/>
+            <TextBlock x:Name="LatDeb" HorizontalAlignment="Left" Margin="10,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock x:Name="LonDeb" HorizontalAlignment="Left" Margin="10,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
         </Grid>
     </Grid>

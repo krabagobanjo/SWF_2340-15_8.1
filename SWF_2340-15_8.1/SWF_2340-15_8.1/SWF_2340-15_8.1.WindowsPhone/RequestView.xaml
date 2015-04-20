@@ -8,11 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <!--<Page.BottomAppBar>
+    <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Name="DelReq" Icon="Delete" Label="Delete" Click="DelReq_Click"/>
         </CommandBar>
-    </Page.BottomAppBar>-->
+    </Page.BottomAppBar>
 
     <Grid x:Name="LayoutRoot">
 

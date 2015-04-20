@@ -121,7 +121,7 @@ namespace SWF_2340_15_8._1
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
             await conn.CreateTableAsync<Request>();
             var numItems = await conn.Table<Request>().CountAsync();
-            Request req = new Request(currUser.Username, name, price) { id = numItems };
+            Request req = new Request(currUser.Username, name, price);
             await conn.InsertAsync(req);
             var msg = new MessageDialog("Request Added");
             await msg.ShowAsync();

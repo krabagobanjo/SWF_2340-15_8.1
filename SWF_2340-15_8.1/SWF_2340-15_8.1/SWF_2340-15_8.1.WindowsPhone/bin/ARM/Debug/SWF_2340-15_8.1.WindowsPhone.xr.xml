@@ -54,7 +54,6 @@
       <RootProperty Name="CharacterSpacing" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
-      <RootProperty Name="Inlines" />
     </RootType>
     <RootType FullName="SWF_2340_15_8._1.FriendView" />
     <RootType FullName="Windows.ApplicationModel.Resources.ResourceLoader" />
@@ -124,10 +123,11 @@
     </RootType>
     <RootType FullName="SWF_2340_15_8._1.MainPage" />
     <RootType FullName="SWF_2340_15_8._1.NewFriend" />
-    <RootType FullName="Windows.UI.Xaml.Documents.Run">
-      <RootProperty Name="Text" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressBar">
+      <RootProperty Name="IsIndeterminate" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Documents.LineBreak" />
     <RootType FullName="SWF_2340_15_8._1.NewReport" />
     <RootType FullName="SWF_2340_15_8._1.NewRequest" />
     <RootType FullName="SWF_2340_15_8._1.register" />

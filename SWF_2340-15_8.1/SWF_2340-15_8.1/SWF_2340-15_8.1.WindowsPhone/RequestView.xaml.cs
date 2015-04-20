@@ -120,16 +120,16 @@ namespace SWF_2340_15_8._1
 
         #endregion
 
-        /*private async void DelReq_Click(object sender, RoutedEventArgs e)
+        private async void DelReq_Click(object sender, RoutedEventArgs e)
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
             await conn.CreateTableAsync<Request>();
-            var toDelete = conn.Table<Request>().Where(x => x.id == clickedItem.id).FirstOrDefaultAsync();
+            var toDelete = await conn.Table<Request>().Where(x => x.id == clickedItem.id).FirstOrDefaultAsync();
             if (toDelete == null) throw new NullReferenceException();
             await conn.DeleteAsync(clickedItem);
             var msg = new MessageDialog("Request Removed");
             await msg.ShowAsync();
             this.Frame.GoBack();
-        }*/
+        }
     }
 }

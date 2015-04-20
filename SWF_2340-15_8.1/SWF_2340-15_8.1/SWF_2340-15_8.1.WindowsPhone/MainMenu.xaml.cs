@@ -165,7 +165,7 @@ namespace SWF_2340_15_8._1
             {
                 var friend = await conn.Table<User>().Where(x => x.Username == s).FirstOrDefaultAsync();
                 if (friend != null) 
-                    if (!friendCollection.Contains(friend)) friendCollection.Add(new User(friend.Name, friend.Username, friend.Email, "", friend.friendsList));
+                    if (!friendCollection.Contains(friend)) friendCollection.Add(friend);
             }
         }
 
@@ -178,11 +178,11 @@ namespace SWF_2340_15_8._1
             {
                 if (currUser.friendsList.Contains(i.owner))
                 {
-                    foreach (Request r in reqCollection)
+                    foreach (Request r in userRequests)
                     {
-                        if (i.item == r.item && i.price <= r.maxPrice)
+                        if (i.item.Equals(r.item) && i.price <= r.maxPrice)
                         {
-                            if (!repCollection.Contains(i)) repCollection.Add(new Report(i.owner, i.item, i.price, i.location));
+                            if (!repCollection.Contains(i)) repCollection.Add(i);
                         }
                     }
                 }
@@ -197,7 +197,7 @@ namespace SWF_2340_15_8._1
             foreach (var i in requests)
             {
                 if (i.owner == currUser.Username && !userRequests.Contains(i)) userRequests.Add(i);
-                if (!reqCollection.Contains(i)) reqCollection.Add(new Request(i.owner, i.item, i.maxPrice));
+                if (!reqCollection.Contains(i)) reqCollection.Add(i);
             }
         }
 

@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
 using SQLite;
+using Windows.Devices.Geolocation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -30,6 +31,10 @@ namespace SWF_2340_15_8._1
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private User currUser;
+        private Geolocator geo = new Geolocator() { DesiredAccuracyInMeters = 100 };
+        private double lat;
+        private double lon;
+
 
         public NewReport()
         {
@@ -72,8 +77,10 @@ namespace SWF_2340_15_8._1
         {
             var navArgs = (NavigationArgs)e.NavigationParameter;
             currUser = navArgs.currUser;
+            prog.Visibility = Visibility.Collapsed;
         }
 
+        
         /// <summary>
         /// Preserves state associated with this page in case the application is suspended or the
         /// page is discarded from the navigation cache.  Values must conform to the serialization
@@ -118,13 +125,35 @@ namespace SWF_2340_15_8._1
             string name = ItemName.Text;
             string pr = ItemPrice.Text;
             double price = Convert.ToDouble(pr);
-            string loc = ItemLoc.Text;
+            string notes = ItemLoc.Text;
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
             await conn.CreateTableAsync<Report>();
-            Report rep = new Report(currUser.Username, name, price, loc);
+            Report rep = new Report(currUser.Username, name, price, lat, lon, notes);
             await conn.InsertAsync(rep);
             var msg = new MessageDialog("Report Added");
             await msg.ShowAsync();
+        }
+
+        private async void GetLoc_Click(object sender, RoutedEventArgs e)
+        {
+            MessageDialog msg;
+            prog.Visibility = Visibility.Visible;
+            try
+            {
+                var position = await geo.GetGeopositionAsync();
+                var coords = position.Coordinate;
+                lat = coords.Latitude;
+                lon = coords.Longitude;
+                LatDeb.Text = lat.ToString();
+                LonDeb.Text = lon.ToString();
+                msg = new MessageDialog("Got Location Successfully");
+            }
+            catch (System.UnauthorizedAccessException)
+            {
+                msg = new MessageDialog("Please Enable Location Services");
+            }
+            await msg.ShowAsync();
+            prog.Visibility = Visibility.Collapsed;
         }
     }
 }

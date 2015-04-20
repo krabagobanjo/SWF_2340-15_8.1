@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -27,6 +28,8 @@ namespace SWF_2340_15_8._1
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private User currUser;
+        private Report clickedItem;
 
         public ReportView()
         {
@@ -67,6 +70,16 @@ namespace SWF_2340_15_8._1
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            var navargs = (NavigationArgs)e.NavigationParameter;
+            currUser = navargs.currUser;
+            clickedItem = navargs.aReport;
+            if (!currUser.Username.Equals(clickedItem.owner)) RemoveReport.IsEnabled = false;
+            LatDeb.Text = clickedItem.latitude.ToString();
+            LonDeb.Text = clickedItem.longitude.ToString();
+            OwnerField.Text = clickedItem.owner;
+            ItemField.Text = clickedItem.item;
+            PriceField.Text = clickedItem.price.ToString();
+            NotesField.Text = clickedItem.notes;
         }
 
         /// <summary>
@@ -107,5 +120,32 @@ namespace SWF_2340_15_8._1
         }
 
         #endregion
+
+        private void ViewLoc_Click(object sender, RoutedEventArgs e)
+        {
+            double lat = clickedItem.latitude;
+            double lon = clickedItem.longitude;
+            string baseUri = "bingmaps:?";
+            string uri = string.Format("{0}cp={1:N5}~{2:N5}&lvl={3}", baseUri, lat, lon, 15);
+            Launch(new Uri(uri));
+        }
+
+        private static async void Launch(Uri uri)
+        {
+            // Launch the URI
+            var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+
+            if (!success)
+            {
+                //Failed to launch maps 
+                var msg = new MessageDialog("Failed to launch maps app.");
+                await msg.ShowAsync();
+            }
+        }
+
+        private void DelRep(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -24,7 +24,12 @@
   <Applications>
     <Application Id="App" Executable="SWF_2340-15_8.1.WindowsPhone.exe" EntryPoint="SWF_2340_15_8._1.WindowsPhone.App">
       <m3:VisualElements DisplayName="Shopping With Friends" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="SWF_2340-15_8.1.WindowsPhone" ForegroundText="light" BackgroundColor="transparent">
-        <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png"></m3:DefaultTile>
+        <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png">
+          <m3:ShowNameOnTiles>
+            <m3:ShowOn Tile="square150x150Logo" />
+            <m3:ShowOn Tile="wide310x150Logo" />
+          </m3:ShowNameOnTiles>
+        </m3:DefaultTile>
         <m3:SplashScreen Image="Assets\SplashScreen.png" />
         <m3:InitialRotationPreference>
           <m3:Rotation Preference="portrait" />
@@ -34,6 +39,7 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClientServer" />
+    <DeviceCapability Name="location" />
   </Capabilities>
   <Dependencies>
     <PackageDependency Name="Microsoft.VCLibs.120.00.Phone.Debug" MinVersion="12.0.30113.0" />
