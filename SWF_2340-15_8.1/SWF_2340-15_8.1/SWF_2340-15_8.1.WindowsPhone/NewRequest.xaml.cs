@@ -120,7 +120,8 @@ namespace SWF_2340_15_8._1
             double price = Convert.ToDouble(pr);
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
             await conn.CreateTableAsync<Request>();
-            Request req = new Request(currUser.Username, name, price);
+            var numItems = await conn.Table<Request>().CountAsync();
+            Request req = new Request(currUser.Username, name, price) { id = numItems };
             await conn.InsertAsync(req);
             var msg = new MessageDialog("Request Added");
             await msg.ShowAsync();

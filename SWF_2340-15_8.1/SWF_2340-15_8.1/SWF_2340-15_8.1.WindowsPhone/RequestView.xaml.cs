@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SQLite;
+using Windows.UI.Popups;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -27,6 +29,8 @@ namespace SWF_2340_15_8._1
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private User currUser;
+        private Request clickedItem;
 
         public RequestView()
         {
@@ -67,6 +71,14 @@ namespace SWF_2340_15_8._1
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            var navargs = (NavigationArgs)e.NavigationParameter;
+            currUser = navargs.currUser;
+            clickedItem = navargs.aRequest;
+            PageTitle.Text = clickedItem.item;
+            ItemField.Text = "Item: " + clickedItem.item;
+            OwnerField.Text = "Owner: " + clickedItem.owner;
+            PriceField.Text = "Price: $" + clickedItem.maxPrice.ToString();
+            //if (clickedItem.owner != currUser.Username) DelReq.IsEnabled = false;
         }
 
         /// <summary>
@@ -107,5 +119,17 @@ namespace SWF_2340_15_8._1
         }
 
         #endregion
+
+        /*private async void DelReq_Click(object sender, RoutedEventArgs e)
+        {
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
+            await conn.CreateTableAsync<Request>();
+            var toDelete = conn.Table<Request>().Where(x => x.id == clickedItem.id).FirstOrDefaultAsync();
+            if (toDelete == null) throw new NullReferenceException();
+            await conn.DeleteAsync(clickedItem);
+            var msg = new MessageDialog("Request Removed");
+            await msg.ShowAsync();
+            this.Frame.GoBack();
+        }*/
     }
 }

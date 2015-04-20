@@ -145,6 +145,8 @@ namespace SWF_2340_15_8._1
                     await conn.UpdateAsync(user);
                     var msg = new MessageDialog("User added!");
                     await msg.ShowAsync();
+                    NameBox.Text = "";
+                    MailBox.Text = "";
                 }
             }
         }

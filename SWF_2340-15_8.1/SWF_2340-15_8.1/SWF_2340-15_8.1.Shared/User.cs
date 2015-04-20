@@ -39,17 +39,17 @@ namespace SWF_2340_15_8._1
 
         public double getRating()
         {
-            string[] rats = Ratings.Split(new char[1] {','});
-            if (rats.Length == 0) return 0;
+            string[] rats = Ratings.Split(',');
+            if (Ratings == "" ) return 0.0;
             else
             {
-                double sum = 0;
+                double sum = 0.0;
                 foreach (string s in rats)
                 {
                     double temp = Convert.ToDouble(s);
                     sum += temp;
                 }
-                if (sum == 0) return 0;
+                if (sum == 0) return 0.0;
                 else return (double) sum / rats.Length;
             }
         }

@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SQLite;
+using Windows.UI.Popups;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -72,7 +74,11 @@ namespace SWF_2340_15_8._1
             var navarg = (NavigationArgs) e.NavigationParameter;
             currUser = navarg.currUser;
             clickedUser = navarg.aUser;
-
+            PageTitle.Text = clickedUser.Name;
+            NameField.Text = "Name: " + clickedUser.Name;
+            uNameField.Text = "Username: " + clickedUser.Username;
+            EmailField.Text = "Email: " + clickedUser.Email;
+            RatingField.Text = "Rating:" + clickedUser.getRating().ToString();
         }
 
         /// <summary>
@@ -113,5 +119,24 @@ namespace SWF_2340_15_8._1
         }
 
         #endregion
+
+        private async void RemoveFriend_Click(object sender, RoutedEventArgs e)
+        {
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
+            await conn.CreateTableAsync<User>();
+            String[] frList1 = currUser.friendsList.Split(',');
+            String[] frList2 = clickedUser.friendsList.Split(',');
+            string newList1 = "";
+            string newList2 = "";
+            foreach (string s in frList1) if (!s.Equals(clickedUser.Username)) newList1 += (s + ",");
+            foreach (string s in frList2) if (!s.Equals(currUser.Username)) newList2 += (s + ",");
+            currUser.friendsList = newList1;
+            clickedUser.friendsList = newList2;
+            await conn.UpdateAsync(currUser);
+            await conn.UpdateAsync(clickedUser);
+            var msg = new MessageDialog("User removed!");
+            await msg.ShowAsync();
+            this.Frame.GoBack();
+        }
     }
 }
