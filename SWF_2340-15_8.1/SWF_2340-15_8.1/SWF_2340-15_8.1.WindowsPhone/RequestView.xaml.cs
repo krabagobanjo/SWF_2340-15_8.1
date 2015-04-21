@@ -78,7 +78,7 @@ namespace SWF_2340_15_8._1
             ItemField.Text = "Item: " + clickedItem.item;
             OwnerField.Text = "Owner: " + clickedItem.owner;
             PriceField.Text = "Price: $" + clickedItem.maxPrice.ToString();
-            //if (clickedItem.owner != currUser.Username) DelReq.IsEnabled = false;
+            if (clickedItem.owner != currUser.Username) DelReq.IsEnabled = false;
         }
 
         /// <summary>

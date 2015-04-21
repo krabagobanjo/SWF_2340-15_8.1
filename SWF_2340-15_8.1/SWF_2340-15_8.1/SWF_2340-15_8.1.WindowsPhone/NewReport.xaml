@@ -37,9 +37,9 @@
             <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Item Name" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="10,72,0,0" TextWrapping="Wrap" Text="Item Price" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="10,134,0,0" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top"/>
-            <TextBox x:Name="ItemName" HorizontalAlignment="Left" Margin="10,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342"/>
+            <TextBox x:Name="ItemName" HorizontalAlignment="Left" Margin="10,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" InputScope="Default"/>
             <TextBox x:Name="ItemPrice" HorizontalAlignment="Left" Margin="10,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" InputScope="Number"/>
-            <TextBox x:Name="ItemLoc" HorizontalAlignment="Left" Margin="10,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342"/>
+            <TextBox x:Name="ItemLoc" HorizontalAlignment="Left" Margin="10,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" InputScope="Default"/>
             <Button x:Name="GetLoc" Content="Get Location" HorizontalAlignment="Left" Margin="10,202,0,0" VerticalAlignment="Top" Click="GetLoc_Click"/>
             <TextBlock x:Name="LatDeb" HorizontalAlignment="Left" Margin="10,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <TextBlock x:Name="LonDeb" HorizontalAlignment="Left" Margin="10,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>

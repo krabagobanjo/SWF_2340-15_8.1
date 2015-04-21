@@ -62,16 +62,16 @@ namespace SWF_2340_15_8._1
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
-                Common.SuspensionManager.RegisterFrame(rootFrame, "appFrame");
+                //Common.SuspensionManager.RegisterFrame(rootFrame, "appFrame");
 
                 // TODO: change this value to a cache size that is appropriate for your application
                 rootFrame.CacheSize = 1;
 
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                /*if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     // TODO: Load state from previously suspended application
                     await Common.SuspensionManager.RestoreAsync();
-                }
+                }*/
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
@@ -128,12 +128,12 @@ namespace SWF_2340_15_8._1
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private async void OnSuspending(object sender, SuspendingEventArgs e)
+        private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
 
             // TODO: Save application state and stop any background activity
-            await Common.SuspensionManager.SaveAsync();
+            //await Common.SuspensionManager.SaveAsync();
             deferral.Complete();
         }
     }

@@ -73,13 +73,14 @@ namespace SWF_2340_15_8._1
             var navargs = (NavigationArgs)e.NavigationParameter;
             currUser = navargs.currUser;
             clickedItem = navargs.aReport;
+            PageTitle.Text = clickedItem.item;
             if (!currUser.Username.Equals(clickedItem.owner)) RemoveReport.IsEnabled = false;
-            LatDeb.Text = clickedItem.latitude.ToString();
-            LonDeb.Text = clickedItem.longitude.ToString();
-            OwnerField.Text = clickedItem.owner;
-            ItemField.Text = clickedItem.item;
-            PriceField.Text = clickedItem.price.ToString();
-            NotesField.Text = clickedItem.notes;
+            //LatDeb.Text = clickedItem.latitude.ToString();
+            //LonDeb.Text = clickedItem.longitude.ToString();
+            OwnerField.Text = "Owner: " + clickedItem.owner;
+            ItemField.Text = "Item: " + clickedItem.item;
+            PriceField.Text = "Price: $" + clickedItem.price.ToString();
+            NotesField.Text = "Notes: " + clickedItem.notes;
         }
 
         /// <summary>
@@ -126,7 +127,8 @@ namespace SWF_2340_15_8._1
             double lat = clickedItem.latitude;
             double lon = clickedItem.longitude;
             string baseUri = "bingmaps:?";
-            string uri = string.Format("{0}cp={1:N5}~{2:N5}&lvl={3}", baseUri, lat, lon, 15);
+            //string uri = string.Format("{0}cp={1:N5}~{2:N5}&lvl={3}", baseUri, lat, lon, 15);
+            string uri = baseUri + "&q=" + Uri.EscapeDataString(lat.ToString() + "," + lon.ToString());
             Launch(new Uri(uri));
         }
 

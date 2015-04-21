@@ -78,7 +78,7 @@ namespace SWF_2340_15_8._1
             NameField.Text = "Name: " + clickedUser.Name;
             uNameField.Text = "Username: " + clickedUser.Username;
             EmailField.Text = "Email: " + clickedUser.Email;
-            RatingField.Text = "Rating:" + clickedUser.getRating().ToString();
+            RatingField.Text = "Rating: " + clickedUser.getRating().ToString();
         }
 
         /// <summary>

@@ -36,6 +36,7 @@ namespace SWF_2340_15_8._1
         ObservableCollection<Report> repCollection = new ObservableCollection<Report>();
         List<Request> userRequests = new List<Request>();
         SQLiteAsyncConnection conn = new SQLiteAsyncConnection("appData.db");
+        private bool repSet;
 
         public MainMenu()
         {
@@ -83,6 +84,7 @@ namespace SWF_2340_15_8._1
             currUser = navArgs.currUser;
             await getFriends();
             await getRequests();
+            repSet = true;
             await getReports();
         }
 
@@ -126,14 +128,6 @@ namespace SWF_2340_15_8._1
         }
 
         #endregion
-
-        private void friendClick(object sender, ItemClickEventArgs e)
-        {
-            // Navigate to the appropriate destination page, configuring the new page
-            // by passing required information as a navigation parameter
-            User friend = ((User)e.ClickedItem);
-            //Frame.Navigate(typeof(ItemPage), friend);
-        }
 
         private void logout_Click(object sender, RoutedEventArgs e)
         {
@@ -214,7 +208,8 @@ namespace SWF_2340_15_8._1
                     AddReq.Visibility = Visibility.Collapsed;
                     AddRep.Visibility = Visibility.Visible;
                     logout.Visibility = Visibility.Visible;
-                    await getReports();
+                    if (repSet) repSet = false;
+                    else await getReports();
                     break;
                 case 1:
                     AddFriend.Visibility = Visibility.Collapsed;

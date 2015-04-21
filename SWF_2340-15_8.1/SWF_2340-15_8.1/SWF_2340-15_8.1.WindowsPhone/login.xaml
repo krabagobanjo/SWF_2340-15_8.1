@@ -21,7 +21,7 @@
 
     <Grid x:Name="LayoutRoot">
         
-        <TextBox x:Name="username" x:Uid="username" HorizontalAlignment="Stretch" Margin="22,51,30,0" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <TextBox x:Name="username" x:Uid="username" HorizontalAlignment="Stretch" Margin="22,51,30,0" TextWrapping="Wrap" VerticalAlignment="Top" InputScope="EmailSmtpAddress" />
         <PasswordBox x:Name="password" x:Uid="password" HorizontalAlignment="Left" Margin="22,126,0,0" VerticalAlignment="Top" Width="348" />
         <TextBlock x:Uid="usernameHeader" HorizontalAlignment="Left" Margin="22,33,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Uid="passwordHeader" HorizontalAlignment="Left" Margin="22,108,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
